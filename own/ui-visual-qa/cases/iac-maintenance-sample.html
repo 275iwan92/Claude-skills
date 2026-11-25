@@ -2,7 +2,7 @@
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Perawatan AC - sample</title>
 <style>
-:root{--navy:#0b1b3b;--navy2:#143a78;--pri:#1d5fe8;--pri2:#2f7bff;--ink:#0f1c33;--mut:#5b6b85;--line:#dfe7f3;--bg1:#e9f1fc;--bg2:#f7faff;
+:root{--navy:#0b1b3b;--navy2:#143a78;--pri:#1d5fe8;--pri2:#2f7bff;--ink:#0f1c33;--mut:#46566f;--line:#dfe7f3;--bg1:#e9f1fc;--bg2:#f7faff;
 --ok:#16a34a;--okb:#e3f7ea;--warn:#e08a00;--warnb:#fff1d6;--bad:#dc2626;--badb:#fde4e4;--r:18px;
 --sh:0 1px 2px rgba(15,28,51,.06),0 8px 24px rgba(30,70,140,.10)}
 *{box-sizing:border-box}
@@ -21,8 +21,8 @@ nav a.on{background:linear-gradient(90deg,#1d5be0,#2563eb);color:#fff;box-shadow
 main{padding:22px 24px 28px;min-width:0}
 .top{display:flex;align-items:center;gap:14px}
 .top>div:first-child{min-width:0}.top h1{margin:0;white-space:nowrap;font-size:34px;font-weight:800;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
-.top h1 svg{width:34px;height:34px;color:var(--pri)}
-.sub{margin:2px 0 0 46px;color:var(--mut);font-size:15px}
+.hi2{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#2563eb,#1d4ed8);display:grid;place-items:center;box-shadow:0 8px 18px rgba(29,78,216,.35)}.top h1 .hi2 svg{width:30px;height:30px;color:#fff}
+.sub{margin:2px 0 0 64px;color:var(--mut);font-size:15px}
 .sp{flex:1}
 .dd,.btn{white-space:nowrap;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:0 14px;display:inline-flex;align-items:center;gap:8px;font:600 15px inherit;color:var(--ink);box-shadow:var(--sh)}
 .btn.pri{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;border-color:transparent}
@@ -74,7 +74,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
 .ev{border-radius:10px;padding:9px 10px;font-weight:600;font-size:14px;margin-top:6px}
 .legend{display:flex;gap:22px;margin-top:14px;font-size:14px;color:#2a3a56}.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px}
 /* detail */
-.det{padding:20px 20px 18px}
+.det{padding:20px 20px 18px;background:radial-gradient(circle at 88% 9%,#dbe9ff 0,#fff 52%)}
 .dh{display:flex;gap:10px;align-items:flex-start}
 .dh h2{margin:0;font-size:30px;font-weight:800}.dh .p{display:flex;gap:6px;align-items:center;color:var(--mut);font-size:15px;margin:4px 0 10px}
 .kv{display:grid;grid-template-columns:22px 1fr auto;gap:10px 10px;align-items:center;margin:14px 0 6px;font-size:15px}
@@ -85,7 +85,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
 .hi b{display:block;font-size:16px}.hi small{font-size:13px;color:var(--mut)}.hi .dt{margin-left:auto;font-weight:600;font-size:15px}
 .bp{width:100%;height:52px;border-radius:13px;background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;font:700 17px inherit;display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0 10px;box-shadow:0 8px 18px rgba(29,95,232,.35)}
 .bs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bs span{height:48px;border:1px solid var(--line);border-radius:13px;display:flex;gap:8px;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:var(--sh)}
-@media(max-width:1100px){.top{flex-wrap:wrap}.top h1{white-space:normal}.card.tw{overflow-x:auto}body{grid-template-columns:1fr}aside{display:none}.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.search{display:none}.wk{grid-template-columns:repeat(2,1fr)}.tabs{flex-wrap:wrap}}
+:root{--ac:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 190'%3E%3Crect x='6' y='8' width='388' height='104' rx='30' fill='none' stroke='%232563eb' stroke-width='6'/%3E%3Crect x='30' y='80' width='340' height='14' rx='7' fill='%232563eb'/%3E%3Cpath d='M36 46h190' stroke='%232563eb' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='350' cy='40' r='7' fill='%232563eb'/%3E%3Cpath d='M50 138c30 22 60 22 90 0s60-22 90 0 60 22 90 0' fill='none' stroke='%232563eb' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M70 170c26 16 52 16 78 0s52-16 78 0 52 16 78 0' fill='none' stroke='%232563eb' stroke-width='6' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E")}main{position:relative}main>*{position:relative;z-index:1}.sch{position:relative;overflow:hidden}@media(max-width:1100px){.top{flex-wrap:wrap}.top h1{white-space:normal}.card.tw{overflow-x:auto}body{grid-template-columns:1fr}aside{display:none}.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.search{display:none}.wk{grid-template-columns:repeat(2,1fr)}.tabs{flex-wrap:wrap}}
 @media(max-width:560px){.sch h3 span{display:none}main{padding:16px}.top{flex-wrap:wrap}.top h1{font-size:28px}.sub{margin-left:0}.kpis{grid-template-columns:1fr}.dd{display:none}th:nth-child(2),td:nth-child(2),th:nth-child(4),td:nth-child(4){display:none}.wk{grid-template-columns:1fr}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -129,14 +129,15 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
   <a><svg class="i"><use href="#user"/></svg>HR</a>
   <a><svg class="i"><use href="#cart"/></svg>Pembelian</a>
  </nav>
- <svg class="city" viewBox="0 0 232 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f8fe0" stop-opacity=".55"/><stop offset="1" stop-color="#143a78" stop-opacity="0"/></linearGradient></defs>
-  <path d="M30 210V70l70-24v164z" fill="url(#g)"/><path d="M100 210V46l60 22v142z" fill="#7da4ea" opacity=".35"/>
-  <g stroke="#cfe0ff" stroke-opacity=".45"><path d="M45 90h40M45 110h40M45 130h40M45 150h40M45 170h40M45 190h40M115 80h30M115 100h30M115 120h30M115 140h30M115 160h30M115 180h30"/></g></svg>
+ <svg class="city" viewBox="0 0 232 210" aria-hidden="true"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#bcd3ff" stop-opacity=".75"/></linearGradient></defs>
+  <rect x="22" y="46" width="188" height="64" rx="18" fill="url(#gs)" opacity=".9"/><rect x="36" y="88" width="160" height="9" rx="4.5" fill="#8fb0ee"/><rect x="38" y="62" width="92" height="6" rx="3" fill="#a9c3f3"/><circle cx="184" cy="66" r="5" fill="#59d68b"/>
+  <g fill="none" stroke="#9cc0ff" stroke-linecap="round" stroke-width="3" opacity=".8"><path d="M44 130c14 12 28 12 42 0s28-12 42 0 28 12 42 0"/><path d="M56 154c12 10 24 10 36 0s24-10 36 0 24 10 36 0" opacity=".65"/><path d="M68 178c10 8 20 8 30 0s20-8 30 0" opacity=".4"/></g>
+  <g stroke="#cfe0ff" stroke-linecap="round" stroke-width="2" opacity=".7"><path d="M200 140v18M191 149h18M194 143l12 12M206 143l-12 12"/><path d="M26 176v12M20 182h12M22 178l8 8M30 178l-8 8" opacity=".6"/></g></svg>
 </aside>
 
 <main>
  <div class="top">
-  <div><h1><svg class="i"><use href="#snow"/></svg>Perawatan AC</h1><p class="sub">Pantau jadwal cuci rutin, servis besar, dan kerusakan seluruh unit AC.</p></div>
+  <div><h1><span class="hi2"><svg class="i"><use href="#ac"/></svg></span>Perawatan AC</h1><p class="sub">Pantau jadwal cuci rutin, servis besar, dan kerusakan seluruh unit AC.</p></div>
   <div class="sp"></div>
   <span class="dd">Semua area<svg class="i" style="width:16px"><use href="#chev"/></svg></span>
   <span class="dd">Semua ruang<svg class="i" style="width:16px"><use href="#chev"/></svg></span>
@@ -209,7 +210,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
 
   <div class="card det">
    <div class="dh"><div style="flex:1"><h2>AC-007</h2><div class="p"><svg class="i" style="width:18px"><use href="#pin"/></svg>Gedung Obat · Gedung B</div><span class="chip c-bad">Terlambat 7 hari</span></div>
-    <svg width="132" height="86" viewBox="0 0 132 86" aria-hidden="true"><defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe8f6"/></linearGradient></defs>
+    <svg width="150" height="98" viewBox="0 0 132 86" aria-hidden="true"><defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe8f6"/></linearGradient></defs>
      <rect x="4" y="6" width="124" height="44" rx="12" fill="url(#a)" stroke="#c9d6ea"/><rect x="14" y="36" width="104" height="7" rx="3.5" fill="#c3d2ea"/><circle cx="112" cy="20" r="3" fill="#59d68b"/>
      <path d="M22 60c10 8 20 8 30 0s20-8 30 0 20 8 28 0" fill="none" stroke="#9cc0ff" stroke-width="2.5" stroke-linecap="round"/><path d="M26 72c9 6 18 6 27 0s18-6 27 0 17 6 24 0" fill="none" stroke="#c4daff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
    <div class="kv">
