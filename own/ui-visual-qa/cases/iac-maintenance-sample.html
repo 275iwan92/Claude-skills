@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perawatan AC - sample</title>
+<style>
+:root{--navy:#0b1b3b;--navy2:#143a78;--pri:#1d5fe8;--pri2:#2f7bff;--ink:#0f1c33;--mut:#5b6b85;--line:#dfe7f3;--bg1:#e9f1fc;--bg2:#f7faff;
+--ok:#16a34a;--okb:#e3f7ea;--warn:#e08a00;--warnb:#fff1d6;--bad:#dc2626;--badb:#fde4e4;--r:18px;
+--sh:0 1px 2px rgba(15,28,51,.06),0 8px 24px rgba(30,70,140,.10)}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.3 Inter,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2) 60%);display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* sidebar */
+aside{background:linear-gradient(180deg,#0a1a3a,#12306b);color:#cdd9f2;padding:18px 14px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 16px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:14px}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px}
+.brand b{display:block;font-size:20px;color:#fff}.brand small{font-size:12px;color:#9fb4de}
+.sec{font-size:12px;letter-spacing:.08em;color:#8ea6d6;margin:14px 8px 6px;font-weight:600}
+nav a{display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:12px;color:#d8e3fa;text-decoration:none;font-size:16px;font-weight:500}
+nav a.on{background:linear-gradient(90deg,#1d5be0,#2563eb);color:#fff;box-shadow:0 6px 16px rgba(31,107,255,.4)}
+.city{margin-top:auto;height:210px;margin-left:-14px;margin-right:-14px;margin-bottom:-18px}
+/* main */
+main{padding:22px 24px 28px;min-width:0}
+.top{display:flex;align-items:center;gap:14px}
+.top>div:first-child{min-width:0}.top h1{margin:0;white-space:nowrap;font-size:34px;font-weight:800;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
+.top h1 svg{width:34px;height:34px;color:var(--pri)}
+.sub{margin:2px 0 0 46px;color:var(--mut);font-size:15px}
+.sp{flex:1}
+.dd,.btn{white-space:nowrap;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:0 14px;display:inline-flex;align-items:center;gap:8px;font:600 15px inherit;color:var(--ink);box-shadow:var(--sh)}
+.btn.pri{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;border-color:transparent}
+.ic{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--sh);position:relative}
+.ic i{position:absolute;top:8px;right:9px;width:9px;height:9px;border-radius:50%;background:#ef4444;border:2px solid #fff}
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7aa7ff,#2f5fd0);box-shadow:var(--sh)}
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 16px}
+.kpi{border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:var(--sh);position:relative;overflow:hidden;min-height:104px}
+.kpi .d{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;flex:none}
+.kpi .d svg{width:28px;height:28px}
+.kpi small{display:block;font-size:15px;font-weight:700}
+.kpi strong{font-size:38px;font-weight:800;line-height:1.05}.kpi em{font-style:normal;color:#44546f;font-size:14px;margin-left:8px}
+.k1{background:linear-gradient(135deg,#e4eeff,#f5f9ff)}.k1 .d{background:#cfe1ff;color:#1d5fe8}
+.k2{background:linear-gradient(135deg,#fff0d4,#fffaf0)}.k2 .d{background:#ffe0a3;color:#d97706}
+.k3{background:linear-gradient(135deg,#fde3e3,#fff6f6)}.k3 .d{background:#fbc9c9;color:#dc2626}
+.k4{background:linear-gradient(135deg,#dff6e7,#f5fdf8)}.k4 .d{background:#bdeccc;color:#16a34a}
+.deco{position:absolute;right:14px;bottom:12px;opacity:.9}
+/* tabs */
+.tabs{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.tab{height:42px;padding:0 16px;border-radius:21px;background:#fff;box-shadow:var(--sh);display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:15px;white-space:nowrap}
+.tab.on{background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff}
+.search{margin-left:auto;height:44px;width:360px;max-width:34%;border-radius:12px;background:#fff;box-shadow:var(--sh);display:flex;gap:10px;align-items:center;padding:0 14px;color:#4f5f7a;font-size:15px}
+/* layout */
+.grid>div{min-width:0}.grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:6px 0}
+table{width:100%;border-collapse:collapse}
+th{white-space:nowrap;font-size:14px;color:#3a4a66;font-weight:700;text-align:left;padding:14px 10px;border-bottom:1px solid var(--line)}
+td{white-space:nowrap;padding:0 10px;height:68px;border-bottom:1px solid #edf2fa;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(--pri)}
+.u{display:flex;gap:12px;align-items:center}
+.tile{width:42px;height:42px;border-radius:12px;background:#dbe8ff;color:#1d5fe8;display:grid;place-items:center}
+.u b{display:block;font-size:17px;font-weight:700}.u small,.cell small{font-size:13px;color:var(--mut)}
+.loc{display:flex;gap:8px;align-items:center;font-size:16px;font-weight:500}.loc svg{width:18px;color:#3b6fe0}
+.cell b{display:flex;gap:6px;align-items:center;font-size:16px;font-weight:600}.cell svg{width:16px;height:16px;color:#4b6bb0}
+.bar{height:6px;border-radius:3px;background:#e3eaf6;margin-top:6px;width:128px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
+.chip{display:inline-flex;gap:6px;align-items:center;height:34px;padding:0 12px;border-radius:17px;font-weight:700;font-size:14px}
+.chip svg{width:16px;height:16px}
+.c-ok{background:var(--okb);color:#166534}.c-warn{background:var(--warnb);color:#9a4607}.c-bad{background:var(--badb);color:#b91c1c}
+.more{color:#5b6b85}
+/* schedule */
+.sch{margin-top:18px;padding:18px 20px 16px}
+.sch h3{margin:0 0 12px;font-size:20px;display:flex;gap:10px;align-items:center}.sch h3 svg{color:var(--pri)}
+.sch h3 span{margin-left:auto;font-size:14px;color:var(--mut);font-weight:500;display:flex;gap:6px;align-items:center}
+.wk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.wk>div{border:1px solid var(--line);border-radius:14px;padding:12px;min-height:128px}
+.wk b{display:block;font-size:16px}.wk small{color:var(--mut);font-size:13px;display:block;margin-bottom:8px}
+.ev{border-radius:10px;padding:9px 10px;font-weight:600;font-size:14px;margin-top:6px}
+.legend{display:flex;gap:22px;margin-top:14px;font-size:14px;color:#2a3a56}.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px}
+/* detail */
+.det{padding:20px 20px 18px}
+.dh{display:flex;gap:10px;align-items:flex-start}
+.dh h2{margin:0;font-size:30px;font-weight:800}.dh .p{display:flex;gap:6px;align-items:center;color:var(--mut);font-size:15px;margin:4px 0 10px}
+.kv{display:grid;grid-template-columns:22px 1fr auto;gap:10px 10px;align-items:center;margin:14px 0 6px;font-size:15px}
+.kv svg{width:18px;color:#4b6bb0}.kv span{color:#33445f}.kv b{font-weight:700;font-size:15px}
+.rh{display:flex;align-items:center;gap:10px;margin:16px 0 10px;font-size:19px;font-weight:700}.rh a{padding:10px 4px;margin:-10px 0 -10px auto;font-size:14px;color:var(--pri);font-weight:600}
+.hi{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:10px}
+.hi .c{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none}
+.hi b{display:block;font-size:16px}.hi small{font-size:13px;color:var(--mut)}.hi .dt{margin-left:auto;font-weight:600;font-size:15px}
+.bp{width:100%;height:52px;border-radius:13px;background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;font:700 17px inherit;display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0 10px;box-shadow:0 8px 18px rgba(29,95,232,.35)}
+.bs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bs span{height:48px;border:1px solid var(--line);border-radius:13px;display:flex;gap:8px;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:var(--sh)}
+@media(max-width:1100px){.top{flex-wrap:wrap}.top h1{white-space:normal}.card.tw{overflow-x:auto}body{grid-template-columns:1fr}aside{display:none}.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.search{display:none}.wk{grid-template-columns:repeat(2,1fr)}.tabs{flex-wrap:wrap}}
+@media(max-width:560px){.sch h3 span{display:none}main{padding:16px}.top{flex-wrap:wrap}.top h1{font-size:28px}.sub{margin-left:0}.kpis{grid-template-columns:1fr}.dd{display:none}th:nth-child(2),td:nth-child(2),th:nth-child(4),td:nth-child(4){display:none}.wk{grid-template-columns:1fr}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="car" viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-6h9L18 17M7 17v2M17 17v2M8.5 14h.01M15.5 14h.01M4 17v-4l2-2"/></symbol>
+<symbol id="snow" viewBox="0 0 24 24"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11M9.5 3.8 12 6l2.5-2.2M9.5 20.2 12 18l2.5 2.2"/></symbol>
+<symbol id="ac" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="9" rx="2.5"/><path d="M7 18h10M7 10h10"/></symbol>
+<symbol id="store" viewBox="0 0 24 24"><path d="M4 9l1-5h14l1 5M4 9v11h16V9M9 20v-6h6v6"/></symbol>
+<symbol id="box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="cart" viewBox="0 0 24 24"><path d="M3 4h3l2 12h10l2-8H7M10 20h.01M17 20h.01"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></symbol>
+<symbol id="wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L11 20a2.1 2.1 0 0 1-3-3z"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20zM12 10v5M12 18h.01"/></symbol>
+<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+<symbol id="print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M6 17H4v-6h16v6h-2M7 14h10v7H7z"/></symbol>
+<symbol id="dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></symbol>
+<symbol id="layers" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5zM2 13l10 5 10-5"/></symbol>
+<symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+<symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6zM14 3v5h5M9 13h6M9 17h6"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
+
+<aside>
+ <div class="brand"><div class="logo">J</div><div><b>Jays</b><small>Facility Management</small></div></div>
+ <div class="sec">GENERAL AFFAIR</div>
+ <nav>
+  <a><svg class="i"><use href="#home"/></svg>Beranda GA</a>
+  <a><svg class="i"><use href="#car"/></svg>Kendaraan</a>
+  <a class="on"><svg class="i"><use href="#snow"/></svg>Perawatan AC</a>
+  <a><svg class="i"><use href="#ac"/></svg>Unit AC</a>
+  <a><svg class="i"><use href="#store"/></svg>Vendor AC</a>
+  <div class="sec">LAINNYA</div>
+  <a><svg class="i"><use href="#box"/></svg>Stok</a>
+  <a><svg class="i"><use href="#user"/></svg>HR</a>
+  <a><svg class="i"><use href="#cart"/></svg>Pembelian</a>
+ </nav>
+ <svg class="city" viewBox="0 0 232 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f8fe0" stop-opacity=".55"/><stop offset="1" stop-color="#143a78" stop-opacity="0"/></linearGradient></defs>
+  <path d="M30 210V70l70-24v164z" fill="url(#g)"/><path d="M100 210V46l60 22v142z" fill="#7da4ea" opacity=".35"/>
+  <g stroke="#cfe0ff" stroke-opacity=".45"><path d="M45 90h40M45 110h40M45 130h40M45 150h40M45 170h40M45 190h40M115 80h30M115 100h30M115 120h30M115 140h30M115 160h30M115 180h30"/></g></svg>
+</aside>
+
+<main>
+ <div class="top">
+  <div><h1><svg class="i"><use href="#snow"/></svg>Perawatan AC</h1><p class="sub">Pantau jadwal cuci rutin, servis besar, dan kerusakan seluruh unit AC.</p></div>
+  <div class="sp"></div>
+  <span class="dd">Semua area<svg class="i" style="width:16px"><use href="#chev"/></svg></span>
+  <span class="dd">Semua ruang<svg class="i" style="width:16px"><use href="#chev"/></svg></span>
+  <span class="btn"><svg class="i"><use href="#print"/></svg>Cetak</span>
+  <span class="btn pri"><svg class="i"><use href="#cal"/></svg>+ Jadwalkan Kunjungan</span>
+  <span class="ic"><svg class="i"><use href="#bell"/></svg><i></i></span><span class="av"></span>
+ </div>
+
+ <div class="kpis">
+  <div class="kpi k1"><span class="d"><svg class="i"><use href="#ac"/></svg></span><div><small>Total Unit Aktif</small><strong>48</strong></div>
+   <svg class="deco" width="96" height="40" viewBox="0 0 96 40"><rect x="2" y="6" width="90" height="22" rx="8" fill="#fff" stroke="#bcd3f7"/><path d="M12 14h70M12 20h70" stroke="#cfe0ff" stroke-width="3" stroke-linecap="round"/><path d="M20 34c10 6 20 6 30 0s20-6 28 0" stroke="#8fb5ff" fill="none" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="kpi k2"><span class="d"><svg class="i"><use href="#clock"/></svg></span><div><small>Segera Jatuh Tempo</small><strong>7</strong><em>≤ 14 hari</em></div></div>
+  <div class="kpi k3"><span class="d"><svg class="i"><use href="#alert"/></svg></span><div><small>Terlambat / Rusak</small><strong>3</strong><em>perlu tindakan</em></div></div>
+  <div class="kpi k4"><span class="d"><svg class="i"><use href="#check"/></svg></span><div><small>Selesai Bulan Ini</small><strong>12</strong><em>kunjungan</em></div>
+   <svg class="deco" width="56" height="44" viewBox="0 0 56 44"><rect x="2" y="26" width="10" height="16" rx="3" fill="#7fd6a0"/><rect x="18" y="16" width="10" height="26" rx="3" fill="#4cc27b"/><rect x="34" y="6" width="10" height="36" rx="3" fill="#22a85a"/></svg></div>
+ </div>
+
+ <div class="tabs">
+  <span class="tab on"><svg class="i"><use href="#layers"/></svg>Semua (48)</span>
+  <span class="tab"><svg class="i" style="color:#16a34a"><use href="#check"/></svg>Aman (38)</span>
+  <span class="tab"><svg class="i" style="color:#e08a00"><use href="#clock"/></svg>Segera (7)</span>
+  <span class="tab"><svg class="i" style="color:#b91c1c"><use href="#alert"/></svg>Terlambat (2)</span>
+  <span class="tab"><svg class="i" style="color:#dc2626"><use href="#wrench"/></svg>Rusak (1)</span>
+  <span class="search"><svg class="i"><use href="#search"/></svg>Cari kode unit, area, atau ruang...</span>
+ </div>
+
+ <div class="grid">
+  <div>
+   <div class="card tw"><table>
+    <thead><tr><th>Unit</th><th>Area / Lokasi</th><th>Cuci Rutin Berikutnya</th><th>Servis Besar</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-014</b><small>Ruang Meeting Lt.2</small></div></div></td>
+      <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>02 Des 2026</b><small>8 hari lagi</small><div class="bar"><i style="width:80%;background:#f59e0b"></i></div></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Mar 2027</b></td>
+      <td><span class="chip c-warn"><svg class="i"><use href="#clock"/></svg>Segera</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
+     <tr class="sel"><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-007</b><small>Gudang Obat</small></div></div></td>
+      <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung B</span></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>18 Nov 2026</b><small style="color:#b91c1c;font-weight:600">Terlambat 7 hari</small><div class="bar"><i style="width:100%;background:#dc2626"></i></div></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Jan 2027</b></td>
+      <td><span class="chip c-bad"><svg class="i"><use href="#wrench"/></svg>Terlambat</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
+     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-021</b><small>Ruang Server</small></div></div></td>
+      <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>15 Jan 2027</b><small>51 hari lagi</small><div class="bar"><i style="width:30%;background:#16a34a"></i></div></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Agu 2027</b></td>
+      <td><span class="chip c-ok"><svg class="i"><use href="#check"/></svg>Aman</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
+     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-003</b><small>Lobi Utama</small></div></div></td>
+      <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
+      <td class="cell"><b style="color:#b91c1c"><svg class="i" style="color:#b91c1c"><use href="#alert"/></svg>Breakdown</b><small style="color:#b91c1c;font-weight:600">Sejak 22 Nov</small><div class="bar"><i style="width:100%;background:#dc2626"></i></div></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Des 2026</b></td>
+      <td><span class="chip c-bad"><svg class="i"><use href="#wrench"/></svg>Rusak</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
+     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-030</b><small>Kantin Karyawan</small></div></div></td>
+      <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung C</span></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>20 Des 2026</b><small>26 hari lagi</small><div class="bar"><i style="width:45%;background:#16a34a"></i></div></td>
+      <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Jun 2027</b></td>
+      <td><span class="chip c-ok"><svg class="i"><use href="#check"/></svg>Aman</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
+    </tbody></table></div>
+
+   <div class="card sch">
+    <h3><svg class="i"><use href="#cal"/></svg>Jadwal 4 Minggu ke Depan<span><svg class="i" style="width:16px"><use href="#cal"/></svg>Des 2026</span></h3>
+    <div class="wk">
+     <div><b>Minggu 1</b><small>25 Nov – 01 Des</small><div class="ev" style="background:#fde4e4;color:#b91c1c">AC-007 Cuci (Telat)</div><div class="ev" style="background:#fff1d6;color:#9a4607">AC-003 Perbaikan</div></div>
+     <div><b>Minggu 2</b><small>02 – 08 Des</small><div class="ev" style="background:#fff1d6;color:#9a4607">AC-014 Cuci</div></div>
+     <div><b>Minggu 3</b><small>09 – 15 Des</small><div class="ev" style="background:#e3f7ea;color:#166534">AC-011 Cuci</div><div class="ev" style="background:#e3f7ea;color:#166534">AC-012 Cuci</div></div>
+     <div><b>Minggu 4</b><small>16 – 22 Des</small><div class="ev" style="background:#e3f7ea;color:#166534">AC-030 Cuci</div></div>
+    </div>
+    <div class="legend"><span><i style="background:#16a34a"></i>Aman (sesuai jadwal)</span><span><i style="background:#f59e0b"></i>Segera (≤ 14 hari)</span><span><i style="background:#dc2626"></i>Terlambat / Rusak</span></div>
+   </div>
+  </div>
+
+  <div class="card det">
+   <div class="dh"><div style="flex:1"><h2>AC-007</h2><div class="p"><svg class="i" style="width:18px"><use href="#pin"/></svg>Gedung Obat · Gedung B</div><span class="chip c-bad">Terlambat 7 hari</span></div>
+    <svg width="132" height="86" viewBox="0 0 132 86" aria-hidden="true"><defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe8f6"/></linearGradient></defs>
+     <rect x="4" y="6" width="124" height="44" rx="12" fill="url(#a)" stroke="#c9d6ea"/><rect x="14" y="36" width="104" height="7" rx="3.5" fill="#c3d2ea"/><circle cx="112" cy="20" r="3" fill="#59d68b"/>
+     <path d="M22 60c10 8 20 8 30 0s20-8 30 0 20 8 28 0" fill="none" stroke="#9cc0ff" stroke-width="2.5" stroke-linecap="round"/><path d="M26 72c9 6 18 6 27 0s18-6 27 0 17 6 24 0" fill="none" stroke="#c4daff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+   <div class="kv">
+    <svg class="i"><use href="#snow"/></svg><span>Merek / PK</span><b>Daikin 1,5 PK</b>
+    <svg class="i"><use href="#store"/></svg><span>Vendor</span><b>CV Dingin Jaya</b>
+    <svg class="i"><use href="#cal"/></svg><span>Cuci Terakhir</span><b>18 Agu 2026</b>
+    <svg class="i"><use href="#cal"/></svg><span>Servis Besar</span><b>Jan 2027</b>
+    <svg class="i"><use href="#wrench"/></svg><span>Rusak 12 bln</span><b>1 kali</b>
+   </div>
+   <div class="rh"><svg class="i" style="color:#4b6bb0"><use href="#clock"/></svg>Riwayat Kunjungan<a>Lihat Semua →</a></div>
+   <div class="hi"><span class="c" style="background:#e3f7ea;color:#16a34a"><svg class="i"><use href="#check"/></svg></span><div><b>Cuci rutin</b><small>KJ-2026-0412 · CV Dingin Jaya</small></div><span class="dt">18 Agu</span></div>
+   <div class="hi"><span class="c" style="background:#fde4e4;color:#dc2626"><svg class="i"><use href="#wrench"/></svg></span><div><b>Perbaikan kompresor</b><small>KJ-2026-0287 · Rp 850.000</small></div><span class="dt">03 Mei</span></div>
+   <div class="hi"><span class="c" style="background:#e3f7ea;color:#16a34a"><svg class="i"><use href="#check"/></svg></span><div><b>Cuci rutin</b><small>KJ-2026-0133</small></div><span class="dt">14 Feb</span></div>
+   <div class="bp"><svg class="i"><use href="#cal"/></svg>Jadwalkan Kunjungan</div>
+   <div class="bs"><span><svg class="i"><use href="#file"/></svg>Lapor Rusak</span><span><svg class="i"><use href="#info"/></svg>Buka Detail</span></div>
+  </div>
+ </div>
+</main>
+</body></html>

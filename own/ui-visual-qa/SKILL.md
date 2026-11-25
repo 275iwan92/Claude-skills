@@ -36,3 +36,10 @@ Claude v1 had the right structure and clean data, but looked flat. ChatGPT added
 7. Top bar: page icon next to the title, notification bell, avatar. Sidebar: brand subtitle, gradient background, active item with icon and filled pill.
 8. History/list items: colored icon circles (green check, red wrench) instead of plain dots; action buttons carry icons; primary button full width.
 Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
+
+## Pitfalls found while building the sample (2026-11-25, cases/iac-maintenance-sample.html, lint 0 at 1440/1024/390)
+- CSS class names collide (a dropdown class and a selected-row class were both `.sel` and wrecked the table): prefix component classes.
+- Table cells need `white-space:nowrap` and explicit column budget (unit 180, area 100, date 130, status 110); wrap the table card in `overflow-x:auto` for phones.
+- Grid/flex children need `min-width:0`, otherwise one wide table pushes the whole page sideways.
+- Chip text colors on tinted chips must be dark shades (green #166534, amber #9a4607, red #b91c1c) to reach 4.5:1; primary blue start #2563eb, not #2f7bff.
+- Headless check without the browser pane: serve over http, `chrome --headless=new --screenshot=out.png --window-size=1440,1060 URL`; lint via a copy of the page that appends ui-lint.js and prints `window.uiLint()` with `--dump-dom --virtual-time-budget=3000`.

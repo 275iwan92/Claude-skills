@@ -8,7 +8,7 @@ window.uiLint = () => {
   const visible = el => { const r = el.getBoundingClientRect(), s = getComputedStyle(el); return r.width > 1 && r.height > 1 && s.visibility !== 'hidden' && s.display !== 'none' && +s.opacity > 0.05; };
   const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
   const rgba = s => { const m = s.match(/[\d.]+/g); return m ? m.map(Number) : [0, 0, 0, 1]; };
-  const bgOf = el => { while (el) { const c = rgba(getComputedStyle(el).backgroundColor); if ((c[3] === undefined ? 1 : c[3]) > 0.9) return c.slice(0, 3); el = el.parentElement; } return [255, 255, 255]; };
+  const bgOf = el => { while (el) { const st = getComputedStyle(el), gm = st.backgroundImage && st.backgroundImage.match(/rgba?\([^)]+\)/); if (gm) { const g = rgba(gm[0]); if ((g[3] === undefined ? 1 : g[3]) > 0.9) return g.slice(0, 3); } const c = rgba(st.backgroundColor); if ((c[3] === undefined ? 1 : c[3]) > 0.9) return c.slice(0, 3); el = el.parentElement; } return [255, 255, 255]; };
 
   // text boxes
   const boxes = [], walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -43,7 +43,7 @@ window.uiLint = () => {
   // small click targets
   document.querySelectorAll('a,button,[role=button],input,select').forEach(el => { if (!visible(el)) return; const r = el.getBoundingClientRect(); if ((r.width < 24 || r.height < 24) && el.type !== 'hidden') add('small-target', el, { w: Math.round(r.width), h: Math.round(r.height) }); });
   // page-level horizontal scroll
-  if (document.documentElement.scrollWidth > innerWidth + 1) issues.push({ type: 'page-h-scroll', at: 'document', scrollWidth: document.documentElement.scrollWidth, viewport: innerWidth });
+  if (document.documentElement.scrollWidth > innerWidth + 1) issues.push({ type: 'page-h-scroll', at: 'document', scrollWidth: document.documentElement.scrollWidth, viewport: innerWidth, culprits: [...document.body.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.right > innerWidth + 1 && !e.closest('[style*="overflow"],.tw'); }).slice(0, 5).map(path) });
   const summary = {}; issues.forEach(i => summary[i.type] = (summary[i.type] || 0) + 1);
   return { viewport: innerWidth + 'x' + innerHeight, total: issues.length, summary, issues: issues.slice(0, 40) };
 };
