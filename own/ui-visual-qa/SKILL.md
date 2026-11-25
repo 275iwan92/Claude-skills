@@ -50,3 +50,11 @@ Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
 - Detail panel header = blue gradient band with the product popping out of it and overlapping the body; title white, status chip white on the band.
 - Page background has soft light glows (radial gradients), sidebar bottom shows a photo of the building with a tagline, KPI cards carry a ghost icon (calendar, wrench) at 20% opacity.
 - Month navigation arrows beside the schedule title. Crop photos/objects from the approved image; keep text real HTML.
+
+## Elegant and professional (Jo, 2026-11-25: "next time you must be more elegant and more professional")
+- Restraint: one primary blue, status colors only for status, at most 3 tints per screen; no decoration that carries no meaning.
+- Alignment: one grid, columns and baselines line up across cards; equal gutters (16/24); same radius and shadow family everywhere.
+- Consistency: one icon set and stroke weight, one chip style, one button height (44-52), numerals right-aligned in tables.
+- Hierarchy: one focal point per screen; titles bold, labels muted; no more than 3 font sizes per card.
+- Polish: hover/focus/selected states, empty and loading states, no clipped photo edges (feather or crop clean), real data lengths.
+- Review as a stranger: if it looks like a template, remove an element before adding one.
