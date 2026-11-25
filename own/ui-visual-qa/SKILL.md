@@ -24,3 +24,15 @@ UI is never done without (1) a reference, (2) `ui-lint` result with zero layout 
 - Grids and maps: `grid-template-columns: repeat(var(--cols), minmax(0,1fr))`, `aspect-ratio`, `container-type: inline-size`, font `clamp(10px, 2.2cqw, 14px)`; one-line labels (`L01-04`, `nowrap`); stack count as a corner chip, never inline; zone title in a header bar with ellipsis + `title`; every state color matches the legend exactly.
 - `min-width: 0` on flex/grid children; truncate with ellipsis, never let text escape its box.
 - Detail panel: illustration, key-value list, status pill, item cards with drag handle, one full-width primary action, outline secondary actions.
+
+## Visual layer checklist (learned 2026-11-25 from Jays "Perawatan AC": Claude v1 vs ChatGPT; images in cases/)
+Claude v1 had the right structure and clean data, but looked flat. ChatGPT added a visual layer. Every screen needs ALL of these before it is shown to Jo:
+1. Icons: a 16-20 px line icon (one set, stroke 1.75, e.g. Lucide/Tabler inline SVG) on every nav item, KPI, tab, button, status chip, table column date/place. Never a plain square or letter tile as placeholder.
+2. Figure/ground: tinted page background (soft blue gradient), white cards with radius 16-20 and layered soft shadow. White on white with a hairline border looks flat.
+3. KPI cards tinted by meaning (blue/amber/red/green soft gradient) with a 40-48 px icon disc, value 28-32 px bold, and one decorative element at the right (mini chart or product illustration).
+4. Domain imagery: product thumbnail or simple SVG illustration in the detail panel and sidebar footer (building/warehouse); empty sidebar space is filled, not left blank.
+5. Table rows: leading icon tile, pin icon before place, calendar icon before dates, status chip with icon, row action menu (three dots), progress bar under the date in the risk color.
+6. Tabs: icon + label + count in parentheses; search field at the right end of the tab row.
+7. Top bar: page icon next to the title, notification bell, avatar. Sidebar: brand subtitle, gradient background, active item with icon and filled pill.
+8. History/list items: colored icon circles (green check, red wrench) instead of plain dots; action buttons carry icons; primary button full width.
+Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
