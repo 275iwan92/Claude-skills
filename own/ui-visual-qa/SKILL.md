@@ -18,7 +18,7 @@ UI is never done without (1) a reference, (2) `ui-lint` result with zero layout 
 
 ## Design rules (numbers, not adjectives)
 - Spacing 4/8/12/16/24/32. Radius 12 cards, 8 controls, 999 pills. Shadow `0 1px 2px rgba(16,24,40,.06), 0 4px 12px rgba(16,24,40,.06)`.
-- Type 12/14/16/20/28, weights 400/600/700, line-height 1.4; labels >= 12 px, body 14 px.
+- Type (Jo: bigger font, tighter spacing, easier to read, as in ChatGPT's version): page title 32-36 px bold; KPI value 32-36 px bold; table primary text 16-17 px semibold; body 15-16 px; secondary/labels 13 px (never below 12); weights 400/600/700; line-height 1.3; dark text on light, secondary gray >= 4.5:1 contrast. Tighter space: card padding 16-20 px, table row 56-64 px, gaps 12-16 px; make text bigger, not the whitespace.
 - Color: one primary, three status colors (green/amber/red), neutral grays; page bg `#f4f7fb`, cards `#fff`, dark navy sidebar.
 - Page shape: title + one-line subtitle + context controls; KPI cards row (40 px icon tile, 12 px muted label, 24-28 px bold value); pill tabs; main area + 360 px right detail panel; footer legend and hint.
 - Grids and maps: `grid-template-columns: repeat(var(--cols), minmax(0,1fr))`, `aspect-ratio`, `container-type: inline-size`, font `clamp(10px, 2.2cqw, 14px)`; one-line labels (`L01-04`, `nowrap`); stack count as a corner chip, never inline; zone title in a header bar with ellipsis + `title`; every state color matches the legend exactly.
