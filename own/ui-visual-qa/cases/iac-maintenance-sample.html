@@ -6,7 +6,7 @@
 --ok:#16a34a;--okb:#e3f7ea;--warn:#e08a00;--warnb:#fff1d6;--bad:#dc2626;--badb:#fde4e4;--r:18px;
 --sh:0 1px 2px rgba(15,28,51,.06),0 8px 24px rgba(30,70,140,.10)}
 *{box-sizing:border-box}
-body{margin:0;font:15px/1.3 Inter,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2) 60%);display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+body{margin:0;font:15px/1.3 Inter,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(900px 420px at 88% -4%,#c9e0ff 0,transparent 62%),radial-gradient(760px 520px at 22% 6%,#d8e8ff 0,transparent 60%),linear-gradient(160deg,#dde9fb,#eef4fd 55%,#f6f9ff);display:grid;grid-template-columns:232px 1fr;min-height:100vh}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
 /* sidebar */
 aside{background:linear-gradient(180deg,#0a1a3a,#12306b);color:#cdd9f2;padding:18px 14px;display:flex;flex-direction:column;position:relative;overflow:hidden}
@@ -18,6 +18,15 @@ nav a{display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:1
 nav a.on{background:linear-gradient(90deg,#1d5be0,#2563eb);color:#fff;box-shadow:0 6px 16px rgba(31,107,255,.4)}
 .city{margin-top:auto;height:210px;margin-left:-14px;margin-right:-14px;margin-bottom:-18px}
 .im{mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%)}.acw{margin-top:auto;background:linear-gradient(180deg,#f4f8ff,#d9e7ff);border-radius:18px;padding:12px 10px 14px;text-align:center;color:#0f1c33;box-shadow:0 10px 24px rgba(0,0,0,.25)}.acw img{display:block;margin:0 auto 4px;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%)}.acw b{display:block;font-size:18px;font-weight:800}.acw small{font-size:13px;color:#46566f}
+.bld{margin:auto -14px -18px;height:420px;position:relative;background:url(side-bld.png) center bottom/cover no-repeat;-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%)}.bld p{position:absolute;left:18px;bottom:22px;margin:0;font-size:15px;line-height:1.35;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.ghost{position:absolute;right:16px;bottom:14px;width:40px;height:40px;opacity:.22;color:#33445f}
+.det{padding:0 0 18px!important;background:#fff!important}.det>*:not(.dband){margin-left:20px;margin-right:20px}
+.dband{position:relative;height:112px;padding:16px 20px;border-radius:18px 18px 0 0;background:linear-gradient(135deg,#1a47c8,#2f80f2);color:#fff}
+.dt1{display:flex;gap:10px;align-items:center}.dt1 h2{margin:0;font-size:30px;font-weight:800}.dt1 svg{width:26px;height:26px}
+.c-bad2{background:#fff;color:#b91c1c;margin-left:auto;margin-right:0;height:32px;padding:0 12px;border-radius:16px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;position:relative;z-index:2}
+.p2{position:relative;z-index:2;display:flex;gap:6px;align-items:center;margin-top:8px;font-size:15px;color:#e1ecff}
+.acbig{position:absolute;right:0;top:50px;width:188px;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 24%);mask-image:linear-gradient(to right,transparent 0,#000 24%)}
+.kv{margin-top:56px!important}
 /* main */
 main{padding:22px 24px 28px;min-width:0}
 .top{display:flex;align-items:center;gap:14px}
@@ -55,12 +64,12 @@ th{white-space:nowrap;font-size:14px;color:#3a4a66;font-weight:700;text-align:le
 td{white-space:nowrap;padding:0 10px;height:68px;border-bottom:1px solid #edf2fa;vertical-align:middle}
 tr:last-child td{border-bottom:0}
 tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(--pri)}
-.u{display:flex;gap:12px;align-items:center}
-.tile{width:42px;height:42px;border-radius:12px;background:#dbe8ff;color:#1d5fe8;display:grid;place-items:center}
+.u{display:flex;gap:10px;align-items:center}
+.tile{width:58px;height:40px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(30,70,140,.16);display:grid;place-items:center;flex:none}.tile img{width:50px;mix-blend-mode:multiply}
 .u b{display:block;font-size:17px;font-weight:700}.u small,.cell small{font-size:13px;color:var(--mut)}
 .loc{display:flex;gap:8px;align-items:center;font-size:16px;font-weight:500}.loc svg{width:18px;color:#3b6fe0}
 .cell b{display:flex;gap:6px;align-items:center;font-size:16px;font-weight:600}.cell svg{width:16px;height:16px;color:#4b6bb0}
-.bar{height:6px;border-radius:3px;background:#e3eaf6;margin-top:6px;width:128px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
+.bar{height:6px;border-radius:3px;background:#e3eaf6;margin-top:6px;width:112px;overflow:hidden}.bar i{display:block;height:100%;border-radius:3px}
 .chip{display:inline-flex;gap:6px;align-items:center;height:34px;padding:0 12px;border-radius:17px;font-weight:700;font-size:14px}
 .chip svg{width:16px;height:16px}
 .c-ok{background:var(--okb);color:#166534}.c-warn{background:var(--warnb);color:#9a4607}.c-bad{background:var(--badb);color:#b91c1c}
@@ -84,7 +93,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
 .hi{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:10px}
 .hi .c{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none}
 .hi b{display:block;font-size:16px}.hi small{font-size:13px;color:var(--mut)}.hi .dt{margin-left:auto;font-weight:600;font-size:15px}
-.bp{width:100%;height:52px;border-radius:13px;background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;font:700 17px inherit;display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0 10px;box-shadow:0 8px 18px rgba(29,95,232,.35)}
+.bp{width:auto;height:52px;border-radius:13px;background:linear-gradient(180deg,#2563eb,#1d4ed8);color:#fff;font:700 17px inherit;display:flex;gap:10px;align-items:center;justify-content:center;margin:14px 0 10px;box-shadow:0 8px 18px rgba(29,95,232,.35)}
 .bs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bs span{height:48px;border:1px solid var(--line);border-radius:13px;display:flex;gap:8px;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:var(--sh)}
 :root{--ac:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 190'%3E%3Crect x='6' y='8' width='388' height='104' rx='30' fill='none' stroke='%232563eb' stroke-width='6'/%3E%3Crect x='30' y='80' width='340' height='14' rx='7' fill='%232563eb'/%3E%3Cpath d='M36 46h190' stroke='%232563eb' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='350' cy='40' r='7' fill='%232563eb'/%3E%3Cpath d='M50 138c30 22 60 22 90 0s60-22 90 0 60 22 90 0' fill='none' stroke='%232563eb' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M70 170c26 16 52 16 78 0s52-16 78 0 52 16 78 0' fill='none' stroke='%232563eb' stroke-width='6' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E")}main{position:relative}main>*{position:relative;z-index:1}.sch{position:relative;overflow:hidden}@media(max-width:1100px){.top{flex-wrap:wrap}.top h1{white-space:normal}.card.tw{overflow-x:auto}body{grid-template-columns:1fr}aside{display:none}.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.search{display:none}.wk{grid-template-columns:repeat(2,1fr)}.tabs{flex-wrap:wrap}}
 @media(max-width:560px){.sch h3 span{display:none}main{padding:16px}.top{flex-wrap:wrap}.top h1{font-size:28px}.sub{margin-left:0}.kpis{grid-template-columns:1fr}.dd{display:none}th:nth-child(2),td:nth-child(2),th:nth-child(4),td:nth-child(4){display:none}.wk{grid-template-columns:1fr}}
@@ -130,7 +139,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
   <a><svg class="i"><use href="#user"/></svg>HR</a>
   <a><svg class="i"><use href="#cart"/></svg>Pembelian</a>
  </nav>
- <div class="acw"><img src="ac-detail.png" alt="" width="176"><b>48 unit AC</b><small>terpantau</small></div>
+ <div class="bld"><p>Facility Management<br>Better Performance</p></div>
 </aside>
 
 <main>
@@ -147,8 +156,8 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
  <div class="kpis">
   <div class="kpi k1"><span class="d"><svg class="i"><use href="#ac"/></svg></span><div><small>Total Unit Aktif</small><strong>48</strong></div>
    <img class="deco im" src="ac-kpi.png" alt="" width="104"></div>
-  <div class="kpi k2"><span class="d"><svg class="i"><use href="#clock"/></svg></span><div><small>Segera Jatuh Tempo</small><strong>7</strong><em>≤ 14 hari</em></div></div>
-  <div class="kpi k3"><span class="d"><svg class="i"><use href="#alert"/></svg></span><div><small>Terlambat / Rusak</small><strong>3</strong><em>perlu tindakan</em></div></div>
+  <div class="kpi k2"><span class="d"><svg class="i"><use href="#clock"/></svg></span><div><small>Segera Jatuh Tempo</small><strong>7</strong><em>≤ 14 hari</em></div><svg class="i ghost"><use href="#cal"/></svg></div>
+  <div class="kpi k3"><span class="d"><svg class="i"><use href="#alert"/></svg></span><div><small>Terlambat / Rusak</small><strong>3</strong><em>perlu tindakan</em></div><svg class="i ghost"><use href="#wrench"/></svg></div>
   <div class="kpi k4"><span class="d"><svg class="i"><use href="#check"/></svg></span><div><small>Selesai Bulan Ini</small><strong>12</strong><em>kunjungan</em></div>
    <svg class="deco" width="56" height="44" viewBox="0 0 56 44"><rect x="2" y="26" width="10" height="16" rx="3" fill="#7fd6a0"/><rect x="18" y="16" width="10" height="26" rx="3" fill="#4cc27b"/><rect x="34" y="6" width="10" height="36" rx="3" fill="#22a85a"/></svg></div>
  </div>
@@ -167,27 +176,27 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
    <div class="card tw"><table>
     <thead><tr><th>Unit</th><th>Area / Lokasi</th><th>Cuci Rutin Berikutnya</th><th>Servis Besar</th><th>Status</th><th></th></tr></thead>
     <tbody>
-     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-014</b><small>Ruang Meeting Lt.2</small></div></div></td>
+     <tr><td><div class="u"><span class="tile"><img src="row-ac.png" alt=""></span><div><b>AC-014</b><small>Ruang Meeting Lt.2</small></div></div></td>
       <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>02 Des 2026</b><small>8 hari lagi</small><div class="bar"><i style="width:80%;background:#f59e0b"></i></div></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Mar 2027</b></td>
       <td><span class="chip c-warn"><svg class="i"><use href="#clock"/></svg>Segera</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
-     <tr class="sel"><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-007</b><small>Gudang Obat</small></div></div></td>
+     <tr class="sel"><td><div class="u"><span class="tile"><img src="row-ac.png" alt=""></span><div><b>AC-007</b><small>Gudang Obat</small></div></div></td>
       <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung B</span></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>18 Nov 2026</b><small style="color:#b91c1c;font-weight:600">Terlambat 7 hari</small><div class="bar"><i style="width:100%;background:#dc2626"></i></div></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Jan 2027</b></td>
       <td><span class="chip c-bad"><svg class="i"><use href="#wrench"/></svg>Terlambat</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
-     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-021</b><small>Ruang Server</small></div></div></td>
+     <tr><td><div class="u"><span class="tile"><img src="row-ac.png" alt=""></span><div><b>AC-021</b><small>Ruang Server</small></div></div></td>
       <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>15 Jan 2027</b><small>51 hari lagi</small><div class="bar"><i style="width:30%;background:#16a34a"></i></div></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Agu 2027</b></td>
       <td><span class="chip c-ok"><svg class="i"><use href="#check"/></svg>Aman</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
-     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-003</b><small>Lobi Utama</small></div></div></td>
+     <tr><td><div class="u"><span class="tile"><img src="row-ac.png" alt=""></span><div><b>AC-003</b><small>Lobi Utama</small></div></div></td>
       <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung A</span></td>
       <td class="cell"><b style="color:#b91c1c"><svg class="i" style="color:#b91c1c"><use href="#alert"/></svg>Breakdown</b><small style="color:#b91c1c;font-weight:600">Sejak 22 Nov</small><div class="bar"><i style="width:100%;background:#dc2626"></i></div></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Des 2026</b></td>
       <td><span class="chip c-bad"><svg class="i"><use href="#wrench"/></svg>Rusak</span></td><td class="more"><svg class="i"><use href="#dots"/></svg></td></tr>
-     <tr><td><div class="u"><span class="tile"><svg class="i"><use href="#ac"/></svg></span><div><b>AC-030</b><small>Kantin Karyawan</small></div></div></td>
+     <tr><td><div class="u"><span class="tile"><img src="row-ac.png" alt=""></span><div><b>AC-030</b><small>Kantin Karyawan</small></div></div></td>
       <td><span class="loc"><svg class="i"><use href="#pin"/></svg>Gedung C</span></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>20 Des 2026</b><small>26 hari lagi</small><div class="bar"><i style="width:45%;background:#16a34a"></i></div></td>
       <td class="cell"><b><svg class="i"><use href="#cal"/></svg>Jun 2027</b></td>
@@ -195,7 +204,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
     </tbody></table></div>
 
    <div class="card sch">
-    <h3><svg class="i"><use href="#cal"/></svg>Jadwal 4 Minggu ke Depan<span><svg class="i" style="width:16px"><use href="#cal"/></svg>Des 2026</span></h3>
+    <h3><svg class="i"><use href="#cal"/></svg>Jadwal 4 Minggu ke Depan<span><svg class="i" style="width:18px;transform:rotate(90deg)"><use href="#chev"/></svg>Des 2026<svg class="i" style="width:18px;transform:rotate(-90deg)"><use href="#chev"/></svg></span></h3>
     <div class="wk">
      <div><b>Minggu 1</b><small>25 Nov – 01 Des</small><div class="ev" style="background:#fde4e4;color:#b91c1c">AC-007 Cuci (Telat)</div><div class="ev" style="background:#fff1d6;color:#9a4607">AC-003 Perbaikan</div></div>
      <div><b>Minggu 2</b><small>02 – 08 Des</small><div class="ev" style="background:#fff1d6;color:#9a4607">AC-014 Cuci</div></div>
@@ -207,8 +216,7 @@ tr.sel td{background:#e6efff}tr.sel td:first-child{box-shadow:inset 4px 0 0 var(
   </div>
 
   <div class="card det">
-   <div class="dh"><div style="flex:1"><h2>AC-007</h2><div class="p"><svg class="i" style="width:18px"><use href="#pin"/></svg>Gedung Obat · Gedung B</div><span class="chip c-bad">Terlambat 7 hari</span></div>
-    <img class="im" src="ac-detail.png" alt="" width="165" height="106"></div>
+   <div class="dband"><div class="dt1"><svg class="i"><use href="#cal"/></svg><h2>AC-007</h2><span class="chip c-bad2">Terlambat 7 hari</span></div><div class="p2"><svg class="i" style="width:18px"><use href="#pin"/></svg>Gedung Obat · Gedung B</div><img class="acbig" src="ac-big.png" alt=""></div>
    <div class="kv">
     <svg class="i"><use href="#snow"/></svg><span>Merek / PK</span><b>Daikin 1,5 PK</b>
     <svg class="i"><use href="#store"/></svg><span>Vendor</span><b>CV Dingin Jaya</b>

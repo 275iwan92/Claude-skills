@@ -44,3 +44,9 @@ Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
 - Chip text colors on tinted chips must be dark shades (green #166534, amber #9a4607, red #b91c1c) to reach 4.5:1; primary blue start #2563eb, not #2f7bff.
 - Headless check without the browser pane: serve over http, `chrome --headless=new --screenshot=out.png --window-size=1440,1060 URL`; lint via a copy of the page that appends ui-lint.js and prints `window.uiLint()` with `--dump-dom --virtual-time-budget=3000`.
 - Illustrations: hand-drawn SVG objects (AC, vehicles, boxes) look amateur next to a rendered image. Take the object from the image Jo approved (crop it with a CSS background-position page and a headless screenshot, `mix-blend-mode:multiply` + radial mask to drop the white), or ask for a rendered asset; use SVG only for icons and simple shapes.
+
+## Learned from ChatGPT v2 (cases/iac-maintenance-CHATGPT-TARGET-v2.webp)
+- Product thumbnail in every table row (white tile with soft shadow), not an icon.
+- Detail panel header = blue gradient band with the product popping out of it and overlapping the body; title white, status chip white on the band.
+- Page background has soft light glows (radial gradients), sidebar bottom shows a photo of the building with a tagline, KPI cards carry a ghost icon (calendar, wrench) at 20% opacity.
+- Month navigation arrows beside the schedule title. Crop photos/objects from the approved image; keep text real HTML.
