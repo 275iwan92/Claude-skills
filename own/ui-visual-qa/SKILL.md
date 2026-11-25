@@ -43,3 +43,4 @@ Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
 - Grid/flex children need `min-width:0`, otherwise one wide table pushes the whole page sideways.
 - Chip text colors on tinted chips must be dark shades (green #166534, amber #9a4607, red #b91c1c) to reach 4.5:1; primary blue start #2563eb, not #2f7bff.
 - Headless check without the browser pane: serve over http, `chrome --headless=new --screenshot=out.png --window-size=1440,1060 URL`; lint via a copy of the page that appends ui-lint.js and prints `window.uiLint()` with `--dump-dom --virtual-time-budget=3000`.
+- Illustrations: hand-drawn SVG objects (AC, vehicles, boxes) look amateur next to a rendered image. Take the object from the image Jo approved (crop it with a CSS background-position page and a headless screenshot, `mix-blend-mode:multiply` + radial mask to drop the white), or ask for a rendered asset; use SVG only for icons and simple shapes.
