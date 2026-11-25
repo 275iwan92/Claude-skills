@@ -8,7 +8,7 @@ description: Use for ANY UI/UX work (screens, mockups, components, layouts, "tam
 UI is never done without (1) a reference, (2) `ui-lint` result with zero layout defects, (3) a screenshot compared side by side with the reference. Never write "not tested" for a screen.
 
 ## Workflow (max 3 fix rounds, then show Jo)
-1. **JPEG gate (Jo's rule): no HTML/CSS/PHP/JS before an approved image exists.** The target is Jo's JPEG/PNG (usually from ChatGPT). No image yet: stop coding that screen, write the section list of the screen (step 2) in one message so Jo can get the image, and work on other tasks meanwhile; never invent the layout from text. Look at the image with Read.
+1. **Image gate (Jo: show the design image first, then code).** No PHP/JS/production CSS before Jo has approved an image of the screen. If Jo gave an image, it is the target. If not, YOU make 2-3 static preview mockups (plain HTML/CSS rendered to a screenshot, or an inline widget), run the lint on them, and show them to Jo; never answer with only a list of sections and never ask Jo to fetch the image. Wait for his choice only on this screen, and keep working on other tasks.
 2. **Spec in 10 lines**: list every section of the reference (header, KPI cards, tabs, main area, side panel, legend, actions) + colors + sizes. Missing sections are the usual reason a screen looks poor.
 3. **Build** from DevLib2 components/tokens (`x-dl2::*`); no loose hex values or fixed-px text inside grid cells.
 4. **Render** at 1440, 1024, 390 px and screenshot each. File pages cannot run scripts in the built-in browser: serve over http (`node` http server or the dev site).
