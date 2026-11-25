@@ -9,3 +9,7 @@ Skill pihak ketiga (pasang dari repo aslinya):
 - Humanizer: https://github.com/blader/humanizer
 
 Pasang skill buatan: salin folder skill ke `~/.claude/skills/`.
+- ElevenLabs: https://github.com/elevenlabs/skills
+- Animasi reel (stick-figure, kurzgesagt, minecraft, dll): https://github.com/artemnovitckii/claude-animation-skills
+- Remotion skills: https://github.com/remotion-dev/skills
+- FFmpeg (winget Gyan.FFmpeg): https://www.gyan.dev/ffmpeg/builds/
