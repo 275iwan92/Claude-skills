@@ -18,6 +18,7 @@ UI is never done without (1) a reference, (2) `ui-lint` result with zero layout 
 
 ## Design rules (numbers, not adjectives)
 - Spacing 4/8/12/16/24/32. Radius 12 cards, 8 controls, 999 pills. Shadow `0 1px 2px rgba(16,24,40,.06), 0 4px 12px rgba(16,24,40,.06)`.
+- Jo 2026-11-26 (angry, again): "SELALU DESIGN KAMU FONT NYA KECIL DAN BANYAK SPACE". Body text min 16px; never a narrow card floating in empty space; fill the width.
 - Type (Jo: bigger font, tighter spacing, easier to read, as in ChatGPT's version): page title 32-36 px bold; KPI value 32-36 px bold; table primary text 16-17 px semibold; body 15-16 px; secondary/labels 13 px (never below 12); weights 400/600/700; line-height 1.3; dark text on light, secondary gray >= 4.5:1 contrast. Tighter space: card padding 16-20 px, table row 56-64 px, gaps 12-16 px; make text bigger, not the whitespace.
 - Color: one primary, three status colors (green/amber/red), neutral grays; page bg `#f4f7fb`, cards `#fff`, dark navy sidebar.
 - Page shape: title + one-line subtitle + context controls; KPI cards row (40 px icon tile, 12 px muted label, 24-28 px bold value); pill tabs; main area + 360 px right detail panel; footer legend and hint.
@@ -42,6 +43,7 @@ Keep from Claude v1: exact data, readable table, no overflow (ui-lint 0).
 - Table cells need `white-space:nowrap` and explicit column budget (unit 180, area 100, date 130, status 110); wrap the table card in `overflow-x:auto` for phones.
 - Grid/flex children need `min-width:0`, otherwise one wide table pushes the whole page sideways.
 - Chip text colors on tinted chips must be dark shades (green #166534, amber #9a4607, red #b91c1c) to reach 4.5:1; primary blue start #2563eb, not #2f7bff.
+- Headless runs open windows that flash on Jo's screen (Jo asked "intruder?"): launch Chrome from PowerShell with Start-Process -WindowStyle Hidden -Wait, close the http server after, and kill your own headless/remote-debugging Chrome/Edge when done.
 - Headless check without the browser pane: serve over http, `chrome --headless=new --screenshot=out.png --window-size=1440,1060 URL`; lint via a copy of the page that appends ui-lint.js and prints `window.uiLint()` with `--dump-dom --virtual-time-budget=3000`.
 - Illustrations: hand-drawn SVG objects (AC, vehicles, boxes) look amateur next to a rendered image. Take the object from the image Jo approved (crop it with a CSS background-position page and a headless screenshot, `mix-blend-mode:multiply` + radial mask to drop the white), or ask for a rendered asset; use SVG only for icons and simple shapes.
 

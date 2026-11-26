@@ -5,6 +5,8 @@ description: Mengganti DevLib v1 dengan DevLib 2 dengan tampilan IDENTIK (keputu
 
 # Paritas DevLib 2 terhadap DevLib v1
 
+> BATAS ARSITEKTUR (Jo 2026-11-26, mengalahkan isi skill ini bila bertentangan): "POLA KERJA BOOTSTRAP, TIDAK BERGANTUNG PADA APPS. LALU COMPONENT DIBUAT UNTUK DI TURUNKAN ATAU DI WARISKAN KE APP." Paritas/kemiripan dengan v1 adalah pekerjaan LAPISAN TEMA DI REPO APP (override token, subclass komponen, CSS @layer app), BUKAN isi inti DevLib2. Jangan menambah CSS parity, skin v1, nama app, atau ukuran lulus dari screenshot app ke src/resources/assets/dist/catalog DevLib2. Cek: node ~/.claude/tools/devlib2-independence.js --list (target 0).
+
 Keputusan Jo (23 Nov 2026): migrasi dinyatakan berhasil hanya bila tampilan SAMA dengan v1 yang live (render, bukan sekadar fungsi). "Mengganti DevLib jadi DevLib2 BUKAN mengubah design." Jangan klaim identik tanpa angka dari `compare.py` (0,000%).
 
 ## Keadaan dan tempat kerja (per 24 Nov 2026)
