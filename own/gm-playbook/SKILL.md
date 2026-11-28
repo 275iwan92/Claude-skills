@@ -14,9 +14,10 @@ description: Playbook for a General Manager session in Jo's Claude organisation 
 - App look and feel lives in the app's theme layer (token override, `@layer app`, subclassed components), never in DevLib2 core.
 
 ## Running workers
+- A job description is scope, not an order: a worker starts work only on a task given by Jo or its manager (lesson 2026-11-28, Bee ran her job desc while Jo wanted login sania_m).
 - One task per worker, a full brief (goal quote, files, proof required, MAIN, stop time 15.35 Mon-Fri).
 - Parallel work (Jo 2026-11-27: "make him work accurate and faster"): every worker brief lands on its branch as docs/briefs/<branch>.md with ACC-n lines copied from Jo/the brief; the worker writes docs/briefs/<branch>.evidence.md (ACC-n PASS: command + result or file). Changed gold/benchmark data needs a GOLD-CHECK line from a second worker. One owner per file area; run `node ~/.claude/tools/devlib2-board.js` (status + overlap) instead of reading worker transcripts. DevLib2 merges of wip branches started after 2026-11-27 00:15 are blocked by herd-guard until the gate passes.
-- Reporting line (Jo 2026-11-27): app GMs report to the Deputy Director (session local_9ed215c5); the Deputy reports to the Director. Escalate to the Director only incidents (data loss, guard breach) or when the Deputy does not answer.
+- Reporting line (Jo 2026-11-27): app GMs report to the Deputy Director (session local_aa14ffb2); the Deputy reports to the Director. Escalate to the Director only incidents (data loss, guard breach) or when the Deputy does not answer.
 - Max 2 workers at once (laptop RAM), unless Jo raised the cap in his own words (GM DevLib2: 12, Jo 2026-11-27, only while the laptop performs well; hook laptop-capacity-gate denies start_session below 1.5 GB free RAM; see DIREKSI.md). Extra workers run heavy work server-side (TM176), not on laptop Chrome. Close finished workers; kill your own headless browsers and dev servers.
 - Jo questions the direction -> stop ALL your workers first, then discuss.
 - A reversing decision from Jo -> first stop the worker's running turn (stop_session), then send the decision; a queued message arrives too late (incident 2026-11-26: v3.0.0 with big fonts released after Jo chose "pakai font yang ada sekarang").
